@@ -1,0 +1,31 @@
+{
+  "name": "idea",
+  "version": "1.0.0",
+  "description": "A lightweight CLI tool and module for keeping ideas in a safe place quick and easy.",
+  "main": "lib/index.js",
+  "dependencies": {
+    "bug-killer": "^1.0.0",
+    "couleurs": "^2.0.0",
+    "le-table": "^2.0.0",
+    "sift": "^0.2.3",
+    "ul": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:IonicaBizau/idea.git"
+  },
+  "keywords": [
+    "idea",
+    "keep"
+  ],
+  "author": "Ionică Bizău <bizauionica@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IonicaBizau/idea/issues"
+  },
+  "homepage": "https://github.com/IonicaBizau/idea"
+}
