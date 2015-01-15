@@ -41,7 +41,7 @@ function display(arr) {
 
     for (; i < arr.length; ++i) {
         c = arr[i];
-        tbl.addRow([i + 1, c.date, c.state, c.content]);
+        tbl.addRow([i + 1, c.date, c.state, c.idea]);
     }
 
     console.log(tbl.toString());
@@ -62,14 +62,14 @@ var idea = new IdeaContainer(function (err) {
         }
       , filter: function (callback) {
             try {
-                var filter = JSON.parse(process.argv[4] || "{ \"state\": \"OPEN\" }");
+                var filter = JSON.parse(process.argv[3] || "{ \"state\": \"OPEN\" }");
             } catch (e) {
                 return callback("Cannot parse the filter.", "error");
             }
             idea.filter(filter, callback);
         }
       , solve: function (callback) {
-            idea.solve(process.argv[4], function () {
+            idea.solve(process.argv[3], function () {
                 if (err) { return callback(err); }
                 callback("Idea was solved.");
             });
