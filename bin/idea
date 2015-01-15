@@ -7,6 +7,7 @@ var IdeaContainer = require("../lib")
 
 // Defaults
 Debug.config.displayDate = false;
+Debug.config.logLevel = 4;
 Table.defaults.marks = {
     nw: "┌"
   , n:  "─"
@@ -25,6 +26,9 @@ Table.defaults.marks = {
 };
 
 function display(arr) {
+    if (!arr.length) {
+        return Debug.log("No ideas fetched.", "info");
+    }
     var tbl = new Table()
       , i = 0
       , c = 0
@@ -54,7 +58,7 @@ var idea = new IdeaContainer(function (err) {
         }
       , filter: function (callback) {
             try {
-                var filter = JSON.parse(process.argv[4] || { state: "OPEN" });
+                var filter = JSON.parse(process.argv[4] || "{ \"state\": \"OPEN\" }");
             } catch (e) {
                 return callback("Cannot parse the filter.", "error");
             }
