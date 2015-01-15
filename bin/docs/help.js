@@ -1,7 +1,7 @@
 module.exports = "idea help"
         + "\n" + "usage: idea [command] <idea|filter|id>"
         + "\n" + ""
-        + "\n" + "A lightweight CLI tool for keeping ideas in a safe place quick and easy."
+        + "\n" + "A lightweight CLI tool and module for keeping your ideas in a safe place quick and easy."
         + "\n" + ""
         + "\n" + "[command]"
         + "\n" + "  create <idea>           Creates and saves a new idea. Example: `idea create \"Implement something very cool\"`"
