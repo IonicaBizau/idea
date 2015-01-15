@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A lightweight CLI tool and module for keeping ideas in a safe place quick and easy.",
   "main": "lib/index.js",
+  "bin": "./bin/idea",
   "dependencies": {
     "bug-killer": "^1.0.0",
     "couleurs": "^2.0.0",
