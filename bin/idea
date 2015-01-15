@@ -3,6 +3,7 @@
 var IdeaContainer = require("../lib")
   , Debug = require("bug-killer")
   , Table = require("le-table")
+  , Couleurs = require("couleurs")(true)
   ;
 
 // Defaults
@@ -35,12 +36,12 @@ function display(arr) {
       ;
 
     tbl.addRow([
-        "Id", "Date", "State", "Idea"
+        "Id".bold(), "Date".bold(), "State".bold(), "Idea".bold()
     ]);
 
     for (; i < arr.length; ++i) {
         c = arr[i];
-        tbl.addRow([i + 1, c.date, c.state, c.idea]);
+        tbl.addRow([i + 1, c.date, c.state, c.content]);
     }
 
     console.log(tbl.toString());
@@ -49,11 +50,14 @@ function display(arr) {
 var idea = new IdeaContainer(function (err) {
     if (err) { return Debug.log(err, "error"); }
     var commands = {
-        create: function () {
-            idea.create(process.argv[3], callback);
+        create: function (callback) {
+            idea.create(process.argv[3], function (err) {
+                if (err) { return callback(err); }
+                callback("Idea was added.");
+            });
             idea.save();
         }
-      , list: function () {
+      , list: function (callback) {
             idea.filter({}, callback);
         }
       , filter: function (callback) {
@@ -65,7 +69,10 @@ var idea = new IdeaContainer(function (err) {
             idea.filter(filter, callback);
         }
       , solve: function (callback) {
-            idea.solve(process.argv[4], callback);
+            idea.solve(process.argv[4], function () {
+                if (err) { return callback(err); }
+                callback("Idea was solved.");
+            });
             idea.save();
         }
       , help: function () {
