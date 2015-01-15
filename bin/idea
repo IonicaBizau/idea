@@ -1,0 +1,87 @@
+#!/usr/bin/env node
+
+var IdeaContainer = require("../lib")
+  , Debug = require("bug-killer")
+  , Table = require("le-table")
+  ;
+
+// Defaults
+Debug.config.displayDate = false;
+Table.defaults.marks = {
+    nw: "┌"
+  , n:  "─"
+  , ne: "┐"
+  , e:  "│"
+  , se: "┘"
+  , s:  "─"
+  , sw: "└"
+  , w:  "│"
+  , b: " "
+  , mt: "┬"
+  , ml: "├"
+  , mr: "┤"
+  , mb: "┴"
+  , mm: "┼"
+};
+
+function display(arr) {
+    var tbl = new Table()
+      , i = 0
+      , c = 0
+      ;
+
+    tbl.addRow([
+        "Id", "Date", "State", "Idea"
+    ]);
+
+    for (; i < arr.length; ++i) {
+        c = arr[i];
+        tbl.addRow([i + 1, c.date, c.state, c.idea]);
+    }
+
+    console.log(tbl.toString());
+}
+
+var idea = new IdeaContainer(function (err) {
+    if (err) { return Debug.log(err, "error"); }
+    var commands = {
+        create: function () {
+            idea.create(process.argv[3], callback);
+            idea.save();
+        }
+      , list: function () {
+            idea.filter({}, callback);
+        }
+      , filter: function (callback) {
+            try {
+                var filter = JSON.parse(process.argv[4] || { state: "OPEN" });
+            } catch (e) {
+                return callback("Cannot parse the filter.", "error");
+            }
+            idea.filter(filter, callback);
+        }
+      , solve: function (callback) {
+            idea.solve(process.argv[4], callback);
+            idea.save();
+        }
+      , help: function () {
+            console.log(require("./docs/help"));
+        }
+    };
+
+    if (!commands[process.argv[2]]) {
+        process.argv[2] = "filter";
+    }
+
+    commands[process.argv[2]](function (err, res) {
+        if (err) {
+            return Debug.log(err, "error");
+        }
+
+        if (typeof res === "string") {
+            return Debug.log(res, "info");
+        }
+
+        display(res);
+    });
+});
