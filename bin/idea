@@ -4,6 +4,7 @@ var IdeaContainer = require("../lib")
   , Debug = require("bug-killer")
   , Table = require("le-table")
   , Couleurs = require("couleurs")(true)
+  , AnsiParser = require("ansi-parser")
   ;
 
 // Defaults
@@ -44,7 +45,7 @@ function display(arr) {
         tbl.addRow([c.id + 1, c.date, c.state, c.idea]);
     }
 
-    console.log(tbl.toString());
+    console.log(AnsiParser.removeAnsi(tbl.toString()));
 }
 
 var idea = new IdeaContainer(function (err) {

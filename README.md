@@ -1,53 +1,47 @@
-![Idea](http://i.imgur.com/BGMt0Ne.png)
+[![idea](http://i.imgur.com/BGMt0Ne.png)](#)
 
-# idea
-A lightweight CLI tool and module for keeping your ideas in a safe place quick and easy.
+# `$ idea` [![Support this project][donate-now]][paypal-donations]
+
+A lightweight CLI tool and module for keeping ideas in a safe place quick and easy.
 
 ## Installation
 
-```sh
-$ npm install -g idea
-```
-
-## Usage
+You can install the package globally and use it as command line tool:
 
 ```sh
-$ idea help
-idea help
-usage: idea [command] <idea|filter|id>
-
-A lightweight CLI tool and module for keeping your ideas in a safe place quick and easy.
-
-[command]
-  create <idea>           Creates and saves a new idea. Example: `idea create "Implement something very cool"`
-  list                    Lists all ideas. Example: `idea list`
-  filter <filter>         Lists filtered ideas. Example: `idea filter '{"state": "SOLVED"}'`
-  solve <id>              Solves an idea. Example `idea solve 1`
-  help                    Prints this help.
-
-Documentation can be found at https://github.com/IonicaBizau/idea
-$ idea create 'Implement the idea tool.'
-$ idea
-┌──┬────────────────────────┬────────────────────────┬────────────────────────┐
-│Id│Date                    │State                   │Idea                    │
-├──┼────────────────────────┼────────────────────────┼────────────────────────┤
-│1 │2015-01-15T14:09:06.233Z│OPEN                    │Implement the idea tool.│
-└──┴────────────────────────┴────────────────────────┴────────────────────────┘
-$ idea solve 1
-$ idea
-info  No ideas fetched.
-$ idea list
-┌──┬────────────────────────┬────────────────────────┬────────────────────────┐
-│Id│Date                    │State                   │Idea                    │
-├──┼────────────────────────┼────────────────────────┼────────────────────────┤
-│1 │2015-01-15T14:09:06.233Z│SOLVED                  │Implement the idea tool.│
-└──┴────────────────────────┴────────────────────────┴────────────────────────┘
+$ npm i -g idea
 ```
 
-## API
-The `idea` can be used as library. See the below example and documentation.
+Then, run `idea --help` and see what the CLI tool can do.
 
-### Example
+```sh
+$ idea --help
+┌──┬────────────────────────┬────────────────────────┬──────────────────────────────┐
+│Id│Date                    │State                   │Idea                          │
+├──┼────────────────────────┼────────────────────────┼──────────────────────────────┤
+│1 │2015-05-22T05:57:27.289Z│OPEN                    │HTML Square illusion (dashing)│
+├──┼────────────────────────┼────────────────────────┼──────────────────────────────┤
+│2 │2015-05-22T05:57:36.023Z│OPEN                    │GitHub stars                  │
+├──┼────────────────────────┼────────────────────────┼──────────────────────────────┤
+│4 │2015-05-22T08:24:15.111Z│OPEN                    │Electron Terminal             │
+├──┼────────────────────────┼────────────────────────┼──────────────────────────────┤
+│5 │2015-07-10T07:17:16.730Z│OPEN                    │ColorTunes music player       │
+├──┼────────────────────────┼────────────────────────┼──────────────────────────────┤
+│6 │2015-07-27T06:55:21.213Z│OPEN                    │Diagram licenses              │
+├──┼────────────────────────┼────────────────────────┼──────────────────────────────┤
+│8 │2015-10-06T17:05:38.867Z│OPEN                    │emoji match                   │
+├──┼────────────────────────┼────────────────────────┼──────────────────────────────┤
+│9 │2015-10-08T07:58:53.968Z│OPEN                    │JSON to markdown              │
+└──┴────────────────────────┴────────────────────────┴──────────────────────────────┘
+```
+
+## Example
+
+Here is an example how to use this package as library. To install it locally, as library, you can do that using `npm`:
+
+```sh
+$ npm i idea
+```
 
 ```js
 // Dependencies
@@ -62,71 +56,25 @@ var idea = new IdeaContainer("./ideas.json", function (err) {
 });
 ```
 
-### `Idea(path, callback)`
+## Documentation
 
-#### Params
-- **String** `path`: The path to the JSON file where your ideas will be stored (default: `~/.ideas.json`).
-- **Function** `callback`: The callback function.
-
-#### Return
-- **Idea** The `Idea` instance.
-
-### `list(callback)`
-Lists all ideas.
-
-#### Params
-- **Function** `callback`: The callback function.
-
-#### Return
-- **Idea** The `Idea` instance.
-
-### `filter(filters, callback)`
-Filters ideas.
-
-#### Params
-- **Object** `filters`: An MongoDB like query object.
-- **Function** `callback`: The callback function.
-
-#### Return
-- **Idea** The `Idea` instance.
-
-### `create(idea, callback)`
-
-#### Params
-- **String** `idea`: The idea you have.
-- **Function** `callback`: The callback function.
-
-#### Return
-- **Idea** The `Idea` instance.
-
-### `solve(id, callback)`
-Solves an idea.
-
-#### Params
-- **String** `id`: The idea id.
-- **Function** `callback`: The callback function.
-
-#### Return
-- **Idea** The `Idea` instance.
-
-### `save(callback)`
-Saves the ideas in the file.
-
-#### Params
-- **Function** `callback`: The callback function.
-
-#### Return
-- **Idea** The `Idea` instance.
+For full API reference, see the [DOCUMENTATION.md][docs] file.
 
 ## How to contribute
-1. File an issue in the repository, using the bug tracker, describing the
-   contribution you'd like to make. This will help us to get you started on the
-   right foot.
-2. Fork the project in your account and create a new branch:
-   `your-great-feature`.
-3. Commit your changes in that branch.
-4. Open a pull request, and reference the initial issue in the pull request
-   message.
+Have an idea? Found a bug? See [how to contribute][contributing].
+
+## Where is this library used?
+If you are using this library in one of your projects, add it in this list. :sparkles:
 
 ## License
-See the [LICENSE](./LICENSE) file.
+
+[KINDLY][license] © [Ionică Bizău][website]
+
+[license]: http://ionicabizau.github.io/kindly-license/?author=Ionic%C4%83%20Biz%C4%83u%20%3Cbizauionica@gmail.com%3E&year=2015
+
+[website]: http://ionicabizau.net
+[paypal-donations]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RVXDDLKKLQRJW
+[donate-now]: http://i.imgur.com/6cMbHOC.png
+
+[contributing]: /CONTRIBUTING.md
+[docs]: /DOCUMENTATION.md
