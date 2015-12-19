@@ -81,6 +81,11 @@ var idea = new IdeaContainer(function (err) {
         }
     };
 
+    if (~process.argv.indexOf("-h") || ~process.argv.indexOf("--help")) {
+      return commands.help();
+    }
+
+
     if (!commands[process.argv[2]]) {
         process.argv[2] = "filter";
     }
