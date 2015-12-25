@@ -1,16 +1,14 @@
 #!/usr/bin/env node
 
-var IdeaContainer = require("../lib")
-  , Debug = require("bug-killer")
-  , Table = require("le-table")
-  , Couleurs = require("couleurs")(true)
-  , AnsiParser = require("ansi-parser")
-  , Daty = require("daty")
-  ;
+const Idea = require("../lib")
+    , logger = require("bug-killer")
+    , Table = require("le-table")
+    , couleurs = require("couleurs")
+    , ansiParser = require("ansi-parser")
+    , Daty = require("daty")
+    ;
 
 // Defaults
-Debug.config.displayDate = false;
-Debug.config.logLevel = 4;
 Table.defaults.marks = {
     nw: "┌"
   , n:  "─"
@@ -30,7 +28,7 @@ Table.defaults.marks = {
 
 function display(arr) {
     if (!arr.length) {
-        return Debug.log("No ideas fetched.", "info");
+        return logger.log("No ideas fetched.", "info");
     }
     var tbl = new Table()
       , i = 0
@@ -38,7 +36,10 @@ function display(arr) {
       ;
 
     tbl.addRow([
-        "Id".bold(), "Date".bold(), "State".bold(), "Idea".bold()
+        couleurs("Id").bold()
+      , couleurs("Date").bold()
+      , couleurs("State").bold()
+      , couleurs("Idea").bold()
     ]);
 
     for (; i < arr.length; ++i) {
@@ -47,23 +48,23 @@ function display(arr) {
         tbl.addRow([c.id + 1, c.date, c.state, c.idea]);
     }
 
-    console.log(AnsiParser.removeAnsi(tbl.toString()));
+    console.log(ansiParser.removeAnsi(tbl.toString()));
 }
 
-var idea = new IdeaContainer(function (err) {
-    if (err) { return Debug.log(err, "error"); }
+var idea = new Idea(err => {
+    if (err) { return logger.log(err, "error"); }
     var commands = {
-        create: function (callback) {
-            idea.create(process.argv[3], function (err) {
+        create: callback => {
+            idea.create(process.argv[3], err => {
                 if (err) { return callback(err); }
                 callback("Idea was added.");
             });
             idea.save();
         }
-      , list: function (callback) {
+      , list: callback => {
             idea.filter({}, callback);
         }
-      , filter: function (callback) {
+      , filter: callback => {
             try {
                 var filter = JSON.parse(process.argv[3] || "{ \"state\": \"OPEN\" }");
             } catch (e) {
@@ -71,14 +72,14 @@ var idea = new IdeaContainer(function (err) {
             }
             idea.filter(filter, callback);
         }
-      , solve: function (callback) {
-            idea.solve(process.argv[3], function () {
+      , solve: callback => {
+            idea.solve(process.argv[3], () => {
                 if (err) { return callback(err); }
                 callback("Idea was solved.");
             });
             idea.save();
         }
-      , help: function () {
+      , help: () => {
             console.log(require("./docs/help"));
         }
     };
@@ -87,18 +88,17 @@ var idea = new IdeaContainer(function (err) {
       return commands.help();
     }
 
-
     if (!commands[process.argv[2]]) {
         process.argv[2] = "filter";
     }
 
-    commands[process.argv[2]](function (err, res) {
+    commands[process.argv[2]]((err, res) => {
         if (err) {
-            return Debug.log(err, "error");
+            return logger.log(err, "error");
         }
 
         if (typeof res === "string") {
-            return Debug.log(res, "info");
+            return logger.log(res, "info");
         }
 
         display(res);
