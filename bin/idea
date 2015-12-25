@@ -5,6 +5,7 @@ var IdeaContainer = require("../lib")
   , Table = require("le-table")
   , Couleurs = require("couleurs")(true)
   , AnsiParser = require("ansi-parser")
+  , Daty = require("daty")
   ;
 
 // Defaults
@@ -42,6 +43,7 @@ function display(arr) {
 
     for (; i < arr.length; ++i) {
         c = arr[i];
+        c.date = new Daty(c.date).format("dddd, MM/DD/YYYY");
         tbl.addRow([c.id + 1, c.date, c.state, c.idea]);
     }
 

@@ -10,6 +10,7 @@
     "ansi-parser": "^3.0.0",
     "bug-killer": "^1.0.0",
     "couleurs": "^2.0.0",
+    "daty": "^1.0.0",
     "is-there": "^1.1.0",
     "le-table": "^2.0.0",
     "sift": "^0.2.3",
