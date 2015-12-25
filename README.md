@@ -41,12 +41,12 @@ $ npm i --save idea
 
 ```js
 // Dependencies
-var IdeaContainer = require("idea");
+var Idea = require("idea");
 
 // Initialize the idea object
-var idea = new IdeaContainer("./ideas.json", function (err) {
+var idea = new Idea("./ideas.json", err => {
     if (err) throw err;
-    idea.create("Implement something cool.", function (err) {
+    idea.create("Implement something cool.", err => {
         if (err) throw err;
     });
 });
