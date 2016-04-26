@@ -1,6 +1,6 @@
 {
   "name": "idea",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A lightweight CLI tool and module for keeping ideas in a safe place quick and easy.",
   "main": "lib/index.js",
   "bin": {
@@ -39,5 +39,16 @@
   "homepage": "https://github.com/IonicaBizau/idea",
   "blah": {
     "h_img": "http://i.imgur.com/BGMt0Ne.png"
-  }
+  },
+  "files": [
+    "bin/",
+    "app/",
+    "lib/",
+    "dist/",
+    "src/",
+    "resources/",
+    "menu/",
+    "cli.js",
+    "index.js"
+  ]
 }
