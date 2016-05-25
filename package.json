@@ -1,6 +1,6 @@
 {
   "name": "idea",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A lightweight CLI tool and module for keeping ideas in a safe place quick and easy.",
   "main": "lib/index.js",
   "bin": {
@@ -48,6 +48,7 @@
     "src/",
     "resources/",
     "menu/",
+    "scripts/",
     "cli.js",
     "index.js"
   ]
