@@ -1,6 +1,6 @@
 {
   "name": "idea",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "A lightweight CLI tool and module for keeping ideas in a safe place quick and easy.",
   "main": "lib/index.js",
   "bin": {
@@ -31,7 +31,7 @@
     "idea",
     "keep"
   ],
-  "author": "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)",
+  "author": "Ionică Bizău <bizauionica@gmail.com> (https://ionicabizau.net)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/IonicaBizau/idea/issues"
@@ -44,12 +44,11 @@
     "bin/",
     "app/",
     "lib/",
-    "build/",
     "dist/",
     "src/",
+    "scripts/",
     "resources/",
     "menu/",
-    "scripts/",
     "cli.js",
     "index.js"
   ]
