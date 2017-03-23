@@ -61,6 +61,15 @@ var idea = new Idea("./ideas.json", err => {
 });
 ```
 
+## :question: Get Help
+
+There are few ways to get help:
+
+ 1. Please [post questions on Stack Overflow](https://stackoverflow.com/questions/ask). You can open issues with questions, as long you add a link to your Stack Overflow question.
+ 2. For bug reports and feature requests, open issues. :bug:
+ 3. For direct and quick help from me, you can [use Codementor](https://www.codementor.io/johnnyb). :rocket:
+
+
 ## :memo: Documentation
 
 For full API reference, see the [DOCUMENTATION.md][docs] file.
