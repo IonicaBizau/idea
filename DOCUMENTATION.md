@@ -5,6 +5,7 @@ You can see below the API reference of this module.
 ### `Idea(path, callback)`
 
 #### Params
+
 - **String** `path`: The path to the JSON file where your ideas will be stored (default: `~/.ideas.json`).
 - **Function** `callback`: The callback function.
 
@@ -15,6 +16,7 @@ You can see below the API reference of this module.
 Lists all ideas.
 
 #### Params
+
 - **Function** `callback`: The callback function.
 
 #### Return
@@ -24,6 +26,7 @@ Lists all ideas.
 Filters ideas.
 
 #### Params
+
 - **Object** `filters`: An MongoDB like query object.
 - **Function** `callback`: The callback function.
 
@@ -33,6 +36,7 @@ Filters ideas.
 ### `create(idea, callback)`
 
 #### Params
+
 - **String** `idea`: The idea you have.
 - **Function** `callback`: The callback function.
 
@@ -43,6 +47,7 @@ Filters ideas.
 Solves an idea.
 
 #### Params
+
 - **String** `id`: The idea id.
 - **Function** `callback`: The callback function.
 
@@ -53,6 +58,7 @@ Solves an idea.
 Saves the ideas in the file.
 
 #### Params
+
 - **Function** `callback`: The callback function.
 
 #### Return
