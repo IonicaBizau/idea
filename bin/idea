@@ -82,6 +82,13 @@ var idea = new Idea(err => {
       , help: () => {
             console.log(require("./docs/help"));
         }
+      , remove: () => {
+            idea.remove(process.argv[3], () => {
+                if (err) { return callback(err); }
+                callback("Idea was removed");
+            });
+            idea.save();
+      }
     };
 
     if (~process.argv.indexOf("-h") || ~process.argv.indexOf("--help")) {
