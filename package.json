@@ -32,6 +32,9 @@
     "keep"
   ],
   "author": "Ionică Bizău <bizauionica@gmail.com> (https://ionicabizau.net)",
+  "contributors": [
+    {"name": "Daniel Dias", "url": "https://github.com/LeinadAsid", "email": "danynovaisdias@outlook.com"}
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/IonicaBizau/idea/issues"
