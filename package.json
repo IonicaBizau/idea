@@ -1,6 +1,6 @@
 {
   "name": "idea",
-  "version": "2.0.11",
+  "version": "2.1.0",
   "description": "A lightweight CLI tool and module for keeping ideas in a safe place quick and easy.",
   "main": "lib/index.js",
   "bin": {
@@ -33,7 +33,11 @@
   ],
   "author": "Ionică Bizău <bizauionica@gmail.com> (https://ionicabizau.net)",
   "contributors": [
-    {"name": "Daniel Dias", "url": "https://github.com/LeinadAsid", "email": "danynovaisdias@outlook.com"}
+    {
+      "name": "Daniel Dias",
+      "url": "https://github.com/LeinadAsid",
+      "email": "danynovaisdias@outlook.com"
+    }
   ],
   "license": "MIT",
   "bugs": {
