@@ -54,6 +54,16 @@ Solves an idea.
 #### Return
 - **Idea** The `Idea` instance.
 
+### `remove(id, callback)`
+
+#### Params
+
+- **String** `id`: The idea id.
+- **Function** `callback`: The callback function.
+
+#### Return
+- **Idea** The `Idea` instance.
+
 ### `save(callback)`
 Saves the ideas in the file.
 

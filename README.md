@@ -78,6 +78,7 @@ A lightweight CLI tool and module for keeping your ideas in a safe place quick a
   list                    Lists all ideas. Example: `idea list`
   filter <filter>         Lists filtered ideas. Example: `idea filter '{"state": "SOLVED"}'`
   solve <id>              Solves an idea. Example `idea solve 1`
+  remove <id>             Removes an idea. Example `idea remove 1`
   help                    Prints this help.
 
 Documentation can be found at https://github.com/IonicaBizau/idea
@@ -189,6 +190,13 @@ Thanks! :heart:
 
 
 
+
+
+
+## :dizzy: Where is this library used?
+If you are using this library in one of your projects, add it in this list. :sparkles:
+
+ - `@everything-registry/sub-chunk-1893`
 
 
 
