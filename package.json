@@ -1,6 +1,6 @@
 {
   "name": "idea",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A lightweight CLI tool and module for keeping ideas in a safe place quick and easy.",
   "main": "lib/index.js",
   "bin": {
@@ -58,6 +58,8 @@
     "menu/",
     "cli.js",
     "index.js",
+    "index.d.ts",
+    "package-lock.json",
     "bloggify.js",
     "bloggify.json",
     "bloggify/"
